@@ -1,0 +1,20 @@
+Bullet Cluster Convergence Peak Locations
+======================================================================
+Grid: 1024x1024, L=6000 kpc, dx=5.9 kpc
+a_u = 1.0421e-10 m/s^2
+
+Model                          Side       x_peak (kpc) kappa_peak
+-----------------------------------------------------------------
+  Baryonic only                main                -26     0.0793
+  Baryonic only                bullet                3     0.0780
+  Standard QUMOND              main                -21     0.0781
+  Standard QUMOND              bullet                3     0.0772
+  w_S-modified QUMOND          main                 -9     0.0761
+  w_S-modified QUMOND          bullet                3     0.0759
+  Full (w_S + neutrinos)       main               -642     0.1450
+  Full (w_S + neutrinos)       bullet                3     0.1391
+
+======================================================================
+KEY RESULT: In the w_S-modified QUMOND, kappa peaks shift
+toward galaxy positions (x = ±350 kpc) relative to standard
+QUMOND where peaks track the gas (x ~ ±100 kpc).

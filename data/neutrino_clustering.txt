@@ -1,0 +1,9 @@
+Sterile Neutrino Budget (CORRECTED)
+Active nu at 0.2 eV requires delta ~ 51000 (IMPOSSIBLE)
+delta_b = 1441
+
+m_s	Omega_s	v_th	delta_s	feasible
+5	0.118	16	1993	Marginal
+8	0.189	10	1246	Yes
+11	0.260	7	906	Yes
+15	0.355	5	664	Yes

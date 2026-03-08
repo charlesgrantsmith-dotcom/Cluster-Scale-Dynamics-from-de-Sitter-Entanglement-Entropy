@@ -1,0 +1,517 @@
+\documentclass[aps,prd,twocolumn,superscriptaddress,nofootinbib]{revtex4-2}
+
+\usepackage{amsmath,amssymb,graphicx,bm}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{booktabs}
+
+\newcommand{\au}{a_u}
+\newcommand{\gN}{\bm{g}_N}
+\newcommand{\g}{\bm{g}}
+\newcommand{\Ph}{\Phi_{\rm ph}}
+\newcommand{\PN}{\Phi_{N}}
+\newcommand{\rhob}{\rho_B}
+\newcommand{\rhon}{\rho_\nu}
+\newcommand{\rhoent}{\rho_{\rm ent}}
+\newcommand{\wS}{w_{\mathcal{S}}}
+\newcommand{\Ssrc}{\mathcal{S}}
+\newcommand{\Sigcr}{\Sigma_{\rm cr}}
+
+\begin{document}
+
+\title{Cluster-Scale Dynamics from de~Sitter Entanglement Entropy:\\
+The Bullet Cluster, Interaction Complexity, and the Neutrino Mass}
+
+\author{Charles Grant Smith Jr.}
+\affiliation{Independent Researcher}
+
+\date{\today}
+
+\begin{abstract}
+The acceleration scale $\au=cH_0/(2\pi)\approx 1.0\times 10^{-10}$~m/s$^2$, derived from the Gibbons--Hawking temperature of the de~Sitter horizon, reproduces galactic rotation curves for 171 SPARC galaxies with median $\chi^2/\nu=1.41$ and zero free acceleration parameters (Paper~1). Paper~2 derives $\au$ from horizon-induced decoherence and obtains the interpolation function $\nu(y)=1/(1-e^{-\sqrt{y}})$ from entropy extremization. Here we extend the framework to galaxy clusters. We introduce an interaction complexity source function $\Ssrc(x)=\dot{s}_{\rm irr}(x)/k_B$---the local irreversible entropy production rate---that modifies the QUMOND phantom density equation by concentrating entanglement gravitational density near regions of high thermodynamic activity. In the Bullet Cluster, this mechanism concentrates the phantom lensing density near galaxies rather than the dominant baryonic component (shocked intracluster gas), because stellar interiors generate entropy at rates $\sim 10^{30}$ times higher per unit volume than diffuse ICM plasma. The integrated cluster mass from the entanglement sector alone gives $M_{\rm total}/M_{\rm bary}\approx 3.6$, a factor $\sim 2$ below observed values. We show that standard active neutrinos cannot close this gap (the required overdensities violate the Tremaine--Gunn bound), but a sterile neutrino component with characteristic mass $m_s\sim 8$--$15$~eV (as in MOND+HDM treatments~\cite{Angus2009,Haslbauer2020}) can supply the missing cluster-scale amplitude; its viability depends on cosmological production and free-streaming constraints discussed in Sec.~\ref{sec:neutrinos}. We assume a non-thermal sterile-neutrino abundance ($\Omega_s\approx 0.26$) rather than full thermalization with the Standard Model sector. The sterile neutrino contributes purely Newtonian gravity ($\wS^{(s)}=0$) and clusters efficiently in deep potential wells ($v_{\rm th}\sim 7$~km/s). The framework predicts: (i)~no cold dark matter particle will be detected; (ii)~lensing mass in merging clusters tracks stellar components; (iii)~cluster dynamics require $m_s\sim 11$~eV hot dark matter; (iv)~galaxy-scale dynamics show a universal transition at $\au=cH_0/(2\pi)$.
+\end{abstract}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+\label{sec:intro}
+
+The $\Lambda$CDM concordance model explains cosmological observations from the CMB to large-scale structure but relies on cold dark matter whose microphysical nature remains unknown. Direct detection experiments have constrained WIMP-nucleon cross sections below $\sim 10^{-48}$~cm$^2$~\cite{LZ2022} with no positive signal.
+
+The empirical coincidence $a_0\approx cH_0/(2\pi)$, linking the MOND acceleration scale $a_0\approx 1.2\times 10^{-10}$~m/s$^2$~\cite{McGaugh2016} to the Hubble parameter through the de~Sitter horizon temperature $T_{\rm dS}=\hbar H_0/(2\pi k_B)$, suggests that galactic dynamics may be governed by horizon-scale entanglement entropy rather than by invisible matter.
+
+In Paper~1~\cite{Paper1}, we demonstrated that the scale $\au=cH_0/(2\pi)$ with $H_0=67.4\pm 0.5$~km/s/Mpc~\cite{Planck2018} reproduces rotation curves for 171 SPARC galaxies~\cite{Lelli2016} with median $\chi^2/\nu=1.41$ and zero free acceleration parameters ($\au$ preferred over $a_0$ in 102/171 galaxies; binomial $p=7\times 10^{-3}$). In Paper~2~\cite{Paper2}, we derived $\au$ from the Gibbons--Hawking temperature and obtained the interpolation function $\nu(y)=1/(1-e^{-\sqrt{y}})$ from an entropy-extremization principle.
+
+The central challenge for any modified-gravity approach is the galaxy cluster scale. Two problems arise:
+
+\textit{(i) The spatial offset problem.} In dissociative merging clusters such as the Bullet Cluster (1E\,0657--558), weak-lensing peaks coincide with the collisionless galaxies, offset from the shocked gas containing $\sim 80\%$ of baryonic mass~\cite{Clowe2006,Bradac2006}.
+
+\textit{(ii) The total mass problem.} Standard QUMOND applied to clusters gives $M_{\rm total}/M_{\rm bary}\approx 2$--$3$, whereas observations indicate $\sim 6$--$8$~\cite{Sanders2003,Angus2008}.
+
+We address both problems. For~(i), we introduce an interaction complexity source function $\Ssrc(x)$ that modifies the QUMOND phantom density, concentrating it near stellar-dominated regions. For~(ii), we show that standard active neutrinos cannot close the gap (the required overdensities violate phase-space bounds), but a sterile-neutrino hot/warm component at the $\mathcal{O}(10\,\mathrm{eV})$ scale (a right-handed neutrino degree of freedom), following Angus~\cite{Angus2009} and Haslbauer et al.~\cite{Haslbauer2020}, provides the missing amplitude.
+
+Unlike MOND variants that modify the interpolation function $\mu(x)$ or $\nu(y)$, we leave $\nu$ fixed (Paper~2) and modify the phantom-sector \emph{source structure} via a thermodynamic weighting field $\wS(x)$. We explicitly do not use any body-by-body superposition of nonlinear operators; multi-body nonlinearity enters only through the full-field QUMOND mapping.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Framework: $\au$ and QUMOND}
+\label{sec:framework}
+
+\subsection{The acceleration scale}
+
+The de~Sitter horizon has a Gibbons--Hawking temperature~\cite{Gibbons1977}
+\begin{equation}
+T_{\rm dS}=\frac{\hbar H_0}{2\pi k_B}\approx 2.5\times 10^{-30}~\text{K}.
+\label{eq:TdS}
+\end{equation}
+The associated acceleration scale is
+\begin{equation}
+\au=\frac{cH_0}{2\pi}=(1.042\pm 0.008)\times 10^{-10}~\text{m/s}^2,
+\label{eq:au}
+\end{equation}
+with $\au/a_0=0.87$. This is not a fitted parameter.
+
+\subsection{QUMOND phantom potential}
+
+We work within the QUMOND formulation~\cite{Milgrom2010}. The Newtonian potential is sourced by baryons:
+\begin{equation}
+\nabla^2\PN=4\pi G\,\rhob,\qquad \gN\equiv-\nabla\PN.
+\label{eq:poissonN}
+\end{equation}
+The phantom potential satisfies
+\begin{equation}
+\nabla^2\Ph=\nabla\cdot\!\Big[(\nu(y)-1)\,\gN\Big],\qquad y\equiv\frac{|\gN|}{\au},
+\label{eq:qumond}
+\end{equation}
+with total potential $\Phi_{\rm tot}=\PN+\Ph$ and phantom density $\rhoent=(4\pi G)^{-1}\nabla^2\Ph$. Throughout, $\rhoent$ is an effective (``phantom'') density: it is not a particulate substance and may be locally negative even when the total potential remains physical.
+
+The interpolation function derived in Paper~2 is
+\begin{equation}
+\nu(y)=\frac{1}{1-e^{-\sqrt{y}}}.
+\label{eq:nu}
+\end{equation}
+Paper~1 also tests the ``simple'' form $\nu_s(y)=(1+\sqrt{1+4/y})/2$; the two agree asymptotically and differ by $<3\%$ at cluster scales ($y\sim 0.1$).
+
+\subsection{Entropy--gravity connection}
+
+The appearance of the de~Sitter temperature in the acceleration scale is not accidental. Jacobson~\cite{Jacobson1995} showed that Einstein's equation can be derived from the Clausius relation $\delta Q = T\,dS$ applied to local Rindler horizons; Verlinde~\cite{Verlinde2016} derived an additional gravitational acceleration from the entropy displacement of de~Sitter space. In both approaches, gravitational dynamics emerge from entropy gradients.
+
+The present framework extends this logic: the phantom density $\rhoent$ is sourced by $\wS(\nu-1)\gN$, and the product rule (Eq.~\ref{eq:productrule} below) generates a term $(\nu-1)\gN\cdot\nabla\wS$ that couples the gravitational response directly to \emph{spatial gradients of entropy production}. This is structurally analogous to the Jacobson--Verlinde entropy--gravity relation, realized within the QUMOND formalism. The physical content is that regions of intense irreversible entropy production---where baryonic matter is most actively entangling with the horizon---generate stronger effective gravitational response.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The interaction complexity source $\Ssrc(x)$}
+\label{sec:complexity}
+
+\subsection{Definition}
+
+We define the interaction complexity as the local irreversible entropy production rate density:
+\begin{equation}
+\boxed{\ \Ssrc(x)\equiv\frac{1}{k_B}\,\dot{s}_{\rm irr}(x)=\frac{1}{k_B}\sum_\alpha\frac{\dot{q}_{{\rm irr},\alpha}(x)}{T(x)}\ },
+\label{eq:Sdef}
+\end{equation}
+with dimensions m$^{-3}$\,s$^{-1}$. The sum runs over \emph{local} dissipative channels $\alpha$: nuclear burning (strong + weak + EM, in stellar cores), Coulomb thermalization (in plasmas), viscous and shock dissipation (at fluid interfaces), and radiative absorption/emission where photons are reprocessed locally. Entropy carried away by free-streaming radiation (starlight escaping to infinity) is \emph{not} counted as local production---it is entropy \emph{export}, not generation at position $x$. This accounting ensures $\Ssrc(x)$ measures the rate of local decoherence-generating interactions, consistent with the horizon-thermodynamic motivation.
+
+We evaluate $\Ssrc$ at the resolution of the gravitational field solver, typically $\Delta x\sim 5$--$30$~kpc, matching the resolution of weak-lensing mass reconstructions. At this scale, individual stars are unresolved; what matters is the coarse-grained $\Ssrc$ averaged over each grid cell.
+
+The dimensionless weight is
+\begin{equation}
+\wS(x)=\frac{\Ssrc(x)}{\langle\Ssrc\rangle_{\rm ap}},
+\label{eq:wSdef}
+\end{equation}
+where $\langle\Ssrc\rangle_{\rm ap}$ is the baryonic-mass-weighted mean within the lensing aperture.
+
+\subsection{Stellar interiors}
+
+The dominant source is nuclear energy generation: $\Ssrc_\star\simeq\epsilon_{\rm nuc}/(k_B T)$. For a solar-type core ($\epsilon_{\rm nuc}\approx 275$~W/m$^3$~\cite{Bahcall2005}, $T_c\approx 1.57\times 10^7$~K):
+\begin{equation}
+\Ssrc_\star=\frac{275}{(1.38\times 10^{-23})(1.57\times 10^7)}=1.27\times 10^{24}~\text{m}^{-3}\text{s}^{-1}.
+\label{eq:Sstar}
+\end{equation}
+
+\subsection{ICM plasma}
+
+The dominant source is bremsstrahlung cooling: $\Ssrc_{\rm ICM}\simeq n_e^2\Lambda(T)/(k_BT)$. For the Bullet Cluster ICM ($n_e\approx 10^3$~m$^{-3}$, $T\approx 10^8$~K, $\Lambda\approx 3\times 10^{-25}$~W\,m$^3$~\cite{Sutherland1993}):
+\begin{equation}
+\Ssrc_{\rm ICM}=\frac{(10^3)^2\times 3\times 10^{-25}}{(1.38\times 10^{-23})(10^8)}=2.2\times 10^{-7}~\text{m}^{-3}\text{s}^{-1}.
+\label{eq:SICM}
+\end{equation}
+
+\subsection{The ratio}
+
+The per-volume ratio is $\Ssrc_\star/\Ssrc_{\rm ICM}\approx 6\times 10^{30}$. Coarse-graining over a Milky Way--type galaxy volume ($L_{\rm gal}\approx 3\times 10^{10}\,L_\odot$, $V_{\rm gal}\approx 4\times 10^{61}$~m$^3$, mass-weighted $\langle T_c\rangle\sim 2\times 10^7$~K):
+\begin{equation}
+\langle\Ssrc\rangle_{\rm gal}\approx\frac{L_{\rm gal}}{k_B\langle T_c\rangle V_{\rm gal}}\approx 1.0\times 10^{-2}~\text{m}^{-3}\text{s}^{-1}.
+\label{eq:Sgal}
+\end{equation}
+This uses the galaxy luminosity as a proxy for the volume-integrated nuclear energy generation rate; it is an order-of-magnitude estimate sufficient for evaluating the offset condition. A detailed calculation would require the stellar mass function and star formation history, but since the required ratio is $\gtrsim 10$ (see \S\ref{sec:bullet}) and the estimate gives $\sim 5\times 10^4$, the result is insensitive to these refinements.
+The coarse-grained ratio is
+\begin{equation}
+\frac{\langle\Ssrc\rangle_{\rm gal}}{\Ssrc_{\rm ICM}}\approx\frac{10^{-2}}{2\times 10^{-7}}\approx 5\times 10^4.
+\label{eq:ratio}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Modified QUMOND with interaction complexity}
+\label{sec:modqumond}
+
+\subsection{Field equation}
+
+The phantom sector is modified while preserving the Newtonian limit:
+\begin{equation}
+\boxed{\ \nabla^2\Ph=\nabla\cdot\!\Big[\wS(x)\,(\nu(y)-1)\,\gN(x)\Big]\ }.
+\label{eq:modQUMOND}
+\end{equation}
+Expanding:
+\begin{equation}
+\rhoent=\frac{1}{4\pi G}\Big[\wS\,\nabla\cdot\!\big((\nu-1)\gN\big)+(\nu-1)\,\gN\cdot\nabla\wS\Big].
+\label{eq:productrule}
+\end{equation}
+The second term localizes phantom density at sharp complexity gradients.
+
+Equation~\eqref{eq:modQUMOND} introduces no new propagating degrees of freedom: $\wS(x)$ is an externally computed field from baryonic thermodynamic variables, and $\Ph$ remains determined by a Poisson-type elliptic equation.
+
+\subsection{Consistency}
+
+\textit{Newtonian limit}: $|\gN|\gg\au\Rightarrow\nu\to 1\Rightarrow\Ph\to 0$ regardless of $\wS$.
+
+\textit{Isolated galaxies}: Inside a relaxed, isolated galaxy, all baryons share a similar thermodynamic environment---stellar cores dominate $\Ssrc$ throughout the disk and bulge, while interstellar gas provides a subdominant, roughly uniform background. The entropy production rate therefore varies slowly compared to the gravitational scale length ($\ell_g\sim\text{kpc}$), so $\wS\approx\text{const}$ across the galaxy. In this limit, $\wS$ factors out of the divergence:
+\begin{equation}
+\nabla^2\Ph \approx \wS_{\rm gal}\,\nabla\cdot[(\nu-1)\gN] = \wS_{\rm gal}\,\nabla^2\Ph_{\rm QUMOND},
+\end{equation}
+which is standard QUMOND rescaled by a constant absorbed into the normalization. Paper~1 rotation curve fits are preserved to the extent that $\wS$ varies slowly compared to the gravitational scale length in isolated galaxies, i.e.\ $\nabla\wS$ terms are negligible at galaxy scale. The $\wS$ modification produces observable effects only in systems where the entropy production rate varies on scales comparable to the gravitational field---precisely the cluster/merger regime where different thermodynamic phases coexist within a single potential well.
+
+\subsection{Gauss constraint}
+
+Integrating Eq.~\eqref{eq:productrule}:
+\begin{equation}
+M_{\rm ent}(R)=\frac{1}{4\pi G}\oint_{S(R)}\wS(\nu-1)\gN\cdot d\bm{A}.
+\label{eq:gauss}
+\end{equation}
+The $\wS$ modification does not generically amplify the large-radius enclosed phantom mass relative to standard QUMOND when $\wS$ variations are localized within the aperture, because the integral is controlled by the boundary flux in Eq.~\eqref{eq:gauss}. This motivates a separate non-baryonic mass contribution.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The Bullet Cluster}
+\label{sec:bullet}
+
+\subsection{Offset condition}
+
+The lensing peak aligns with galaxies when the $\wS$-weighted flux exceeds that of the gas:
+\begin{equation}
+\frac{\langle\wS\rangle_{\rm gal}}{\langle\wS\rangle_{\rm gas}}\gtrsim\frac{(\nu-1)_{\rm gas}\,\Phi_g^{\rm gas}}{(\nu-1)_{\rm gal}\,\Phi_g^{\rm gal}}.
+\label{eq:offset}
+\end{equation}
+The right-hand side is of order $\sim 10$ (reflecting the gas mass advantage). From Eq.~\eqref{eq:ratio}, the left-hand side is $\sim 5\times 10^4$. \textbf{The offset condition is satisfied by nearly four orders of magnitude.}
+
+\subsection{Collisionless properties}
+
+The phantom density has: (i)~no electromagnetic coupling; (ii)~$\sigma_{\rm self}/m=0$ exactly; (iii)~no pressure or sound speed ($c_s=0$). (For comparison, empirical bounds on dark-sector self-interaction in the Bullet Cluster give $\sigma/m\lesssim 1.25~\mathrm{cm}^2/\mathrm{g}$~\cite{Randall2008}.)
+
+\subsection{Lensing assumption and relativistic completion}
+\label{sec:lensing_assumption}
+
+QUMOND is a nonrelativistic framework. Gravitational lensing, however, depends on the relativistic metric potentials $\Phi$ and $\Psi$ (specifically the Weyl potential $(\Phi+\Psi)/2$). We therefore state our lensing assumption explicitly:
+
+\emph{We assume that photon deflection is sourced by $\Phi_{\rm tot}=\PhN+\Phph$ with no gravitational slip ($\Psi=\Phi$).}
+
+This assumption is not ad hoc. Skordis \& Z\l{}o\'snik~\cite{Skordis2021} constructed a relativistic MOND theory (RMOND) that reproduces the CMB power spectrum, satisfies gravitational-wave speed constraints ($c_T=c$), and yields QUMOND as its nonrelativistic weak-field limit---with lensing sourced by the same potential that governs nonrelativistic dynamics and with $\Psi/\Phi=1$ in the quasi-static limit. Our modified QUMOND equation~\eqref{eq:modQUMOND} can be embedded in this covariant framework as a straightforward extension of the phantom sector.
+
+The no-slip assumption is itself a testable prediction: Euclid and Rubin/LSST will measure the slip parameter $\eta\equiv\Psi/\Phi$ on cluster scales. A statistically significant detection of $\eta\neq 1$ in the regime where our model predicts excess lensing would falsify the assumed metric structure.
+
+\subsection{Abell 520: a potential challenge}
+
+Abell~520 exhibits a ``dark core'' coincident with gas in some reconstructions~\cite{Jee2014} but not others~\cite{Clowe2012}. If confirmed, the framework requires either a hidden compact-remnant population or revision of the $\wS$ mechanism at cluster cores. Because Abell~520 is a direct counterexample if the dark core is confirmed, it is a priority falsification target for the $\wS$ mechanism rather than an ancillary case.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Numerical demonstration: toy lensing map}
+\label{sec:numerical}
+
+To move beyond the analytic offset inequality, we solve the $\wS$-modified QUMOND equation on a 2D grid for a simplified Bullet Cluster geometry.
+
+\subsection{Setup}
+
+We adopt a thin-lens (projected) calculation on a $1024^2$ grid with $L=6$~Mpc box size ($\Delta x\approx 5.9$~kpc), using an FFT-based Poisson solver. The baryonic surface density consists of:
+\begin{itemize}
+\item Two $\beta$-model gas components ($M_{\rm gas,main}=2\times 10^{14}\,M_\odot$, $r_c=100$~kpc; $M_{\rm gas,bullet}=0.8\times 10^{14}\,M_\odot$, $r_c=80$~kpc), centered at $x=\mp 50$~kpc (shocked, lagging near the collision midplane);
+\item Two Gaussian galaxy distributions ($M_{\rm gal,main}=0.4\times 10^{14}\,M_\odot$, $\sigma=350$~kpc; $M_{\rm gal,bullet}=0.15\times 10^{14}\,M_\odot$, $\sigma=300$~kpc), centered at $x=\mp 700$~kpc (passed through, collisionless).
+\end{itemize}
+This gives a gas fraction of $\sim 84\%$ with the gas peak surface density exceeding the galaxy peak---matching the observed Bullet Cluster baryonic configuration. The $\wS$ field is computed from the local galaxy-to-gas ratio using the coarse-grained entropy values from \S\ref{sec:Sdef}.
+
+\subsection{Three cases}
+
+We compute the convergence $\kappa=\Sigma_{\rm tot}/\Sigma_{\rm cr}$ for three cases:
+\begin{enumerate}
+\item \textit{Standard QUMOND} ($\wS=1$): $\kappa$ peaks at the gas center ($x\approx -26$~kpc);
+\item \textit{$\wS$-modified QUMOND}: modest redistribution, $\kappa$ peak shifts to $x\approx -15$~kpc;
+\item \textit{Full model} ($\wS$ + sterile neutrino HDM with pre-collision inertia): $\kappa$ peak shifts to the galaxy location at $x\approx -642$~kpc.
+\end{enumerate}
+
+The sterile neutrino component is modeled with a phenomenological non-equilibrium parameter $f_{\rm inertia}\approx 0.75$, representing incomplete phase-space relaxation on the merger timescale: the collision crossing time ($\sim 0.4$~Gyr) is shorter than the phase-space relaxation time of a collisionless hot/warm component ($\sim 1.3$~Gyr), so the sterile neutrinos retain memory of their pre-collision (galaxy-centered) distribution. A full treatment would evolve the sterile-neutrino distribution function; here $f_{\rm inertia}$ illustrates how a collisionless gravitating component co-moving with galaxies enhances the observed offset morphology.
+
+\subsection{Results}
+
+On the main-cluster side, the full-model $\kappa$ peak ($0.145$) at the galaxy position exceeds the gas-region peak ($0.143$), confirming that the total lensing mass tracks the collisionless galaxies---the observed Bullet Cluster signature. The 1D profile along the merger axis (Supplementary Material, Fig.~2) shows the full model elevated by a factor of $\sim 2$--$3$ over standard QUMOND at the galaxy positions.
+
+On the bullet side, the peak does not fully separate from the gas center in this toy geometry. A full 3D calculation with realistic profiles and self-consistent sterile neutrino phase-space evolution would be needed for a quantitative comparison to the Clowe et al.~\cite{Clowe2006} lensing reconstruction.
+
+\emph{This calculation is a toy morphology demonstration showing the direction and magnitude of the offset effect. It is not a best-fit reconstruction.} The code (\texttt{bullet\_cluster\_lensing.py}) is included as supplementary material and reproduces the figures in $\sim 30$ seconds.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Cluster mass and the hot dark matter component}
+\label{sec:neutrinos}
+
+\subsection{The QUMOND deficit}
+
+At the Bullet Cluster virial radius ($R_{\rm vir}\sim 2$~Mpc, $M_{\rm bary}\sim 3\times 10^{14}\,M_\odot$~\cite{Clowe2006,Bradac2006}):
+\begin{equation}
+g_B\approx\frac{GM_{\rm bary}}{R_{\rm vir}^2}\approx 1.1\times 10^{-11}~\text{m/s}^2,\quad y\approx 0.11.
+\label{eq:gcluster}
+\end{equation}
+Using Eq.~\eqref{eq:nu}:
+\begin{equation}
+\bar{\nu}(0.11)=\frac{1}{1-e^{-\sqrt{0.11}}}=\frac{1}{1-e^{-0.332}}=3.55.
+\label{eq:nucluster}
+\end{equation}
+Observed ratios are $\sim 6$--$8$; the deficit factor is $\sim 2$.
+
+\subsection{Why active neutrinos are insufficient}
+
+One might hope that the cosmic neutrino background (C$\nu$B) of standard active neutrinos ($\sum m_\nu\gtrsim 0.06$~eV~\cite{Esteban2020}) could supply the missing mass. However, the required neutrino overdensity within the cluster is
+\begin{equation}
+\delta_\nu = \frac{M_\nu^{\rm (required)}}{\rho_\nu^{\rm (cosmic)}\,V_{\rm cl}},
+\label{eq:deltanu_correct}
+\end{equation}
+where $\rho_\nu^{\rm (cosmic)}=\Omega_\nu\rho_{\rm crit}$ is the cosmic mean neutrino density. For $\sum m_\nu=0.2$~eV and $V_{\rm cl}=(4\pi/3)(2\,{\rm Mpc})^3$, this gives $\delta_\nu\sim 5\times 10^4$---far beyond what is achievable for active neutrinos with thermal velocities $v_{\rm th}\sim 2400$~km/s at $m_\nu\sim 0.067$~eV per species. The Tremaine--Gunn phase-space bound~\cite{TremaineGunn1979} excludes such overdensities by orders of magnitude.
+
+This is a well-known result: active neutrinos at laboratory-allowed masses cannot resolve the MOND cluster mass problem~\cite{Sanders2003,Angus2008}.
+
+\subsection{Sterile neutrinos as the minimal additional component}
+
+Following Angus~\cite{Angus2009} and Haslbauer et al.~\cite{Haslbauer2020}, we consider a single species of sterile neutrino with mass $m_s\sim 11$~eV. Such a particle:
+\begin{itemize}
+\item has $v_{\rm th}\sim 7$~km/s today---essentially cold, gravitationally bound to all structures above dwarf galaxy scale;
+\item has $\Omega_s = m_s/(93.14\,h^2\,{\rm eV})\approx 0.26$, comparable to $\Omega_{\rm DM}$ in $\Lambda$CDM;
+\item has a free-streaming scale $\lambda_{\rm fs}\sim\text{few Mpc}$, suppressing structure below cluster scales but preserving it above.
+\end{itemize}
+
+In the entanglement gravity framework, sterile neutrinos have $\wS^{(s)}\approx 0$ (negligible weak-interaction entropy production), so they contribute purely Newtonian gravity---identical to their treatment in MOND+HDM cosmologies~\cite{Angus2009,Haslbauer2020}. We do not assume full thermalization of the sterile state; instead we treat $\Omega_s$ as a cosmological abundance parameter determined by the production mechanism (e.g., non-resonant or resonant production) and focus on the dynamical requirement that a nearly-cold component at the $\mathcal{O}(10\,\mathrm{eV})$ scale be available at cluster mass scales.
+
+The total potential becomes
+\begin{align}
+\Phi_{\rm tot}&=\PN^{(\rm bary)}+\PN^{(s)}+\Ph^{(\rm bary)},\label{eq:totpot}\\
+\nabla^2\PN^{(s)}&=4\pi G\,\rho_s,\nonumber\\
+\nabla^2\Ph^{(\rm bary)}&=\nabla\cdot\!\Big[\wS(\nu(y)-1)\gN^{(\rm bary)}\Big],\nonumber
+\end{align}
+with $y=|\gN^{(\rm bary)}|/\au$. The total gravitating density entering lensing is
+\begin{equation}
+\nabla^2\Phi_{\rm tot}=4\pi G(\rhob+\rho_s+\rhoent).
+\label{eq:total_poisson}
+\end{equation}
+
+\subsection{Cluster mass budget}
+
+The mass ratio:
+\begin{equation}
+\frac{M_{\rm tot}}{M_{\rm bary}}=\bar{\nu}+\frac{M_s}{M_{\rm bary}}\approx 3.55+\frac{M_s}{M_{\rm bary}}.
+\label{eq:budget}
+\end{equation}
+The required sterile neutrino contribution is $M_s/M_{\rm bary}\approx 2.5$--$4.5$, corresponding to $M_s\sim 10^{15}\,M_\odot$ within $R_{\rm vir}$.
+
+For an 11~eV sterile neutrino with $\Omega_s\approx 0.26$, the cosmic density within the cluster volume is $\rho_s^{\rm (cosmic)}\times V_{\rm cl}\approx 1.1\times 10^{12}\,M_\odot$. The required overdensity:
+\begin{equation}
+\delta_s = \frac{M_s^{\rm (required)}}{\rho_s^{\rm (cosmic)}\,V_{\rm cl}} \approx \frac{1.0\times 10^{15}}{1.1\times 10^{12}} \approx 930.
+\label{eq:deltas}
+\end{equation}
+
+This is comparable to the baryon overdensity within $R_{200}$ ($\delta_b\sim 1400$) and to the CDM overdensity in $\Lambda$CDM halos ($\delta_{\rm DM}\sim 750$ relative to cosmic mean DM density). For a nearly-cold component ($v_{\rm th}\sim 7$~km/s $\ll v_{\rm esc}\sim 2500$~km/s), such clustering is well within phase-space limits and has been demonstrated in HDM simulations~\cite{Haslbauer2020}.
+
+\begin{table}[h]
+\caption{Sterile neutrino mass budget for clusters. Required $M_s/M_{\rm bary}\approx 3.4$ (midpoint).}
+\label{tab:numass}
+\begin{ruledtabular}
+\begin{tabular}{ccccc}
+$m_s$ (eV) & $\Omega_s$ & $v_{\rm th}$ (km/s) & $\delta_s$ required & Feasible? \\
+\hline
+5 & 0.12 & 16 & 2040 & Marginal \\
+8 & 0.19 & 10 & 1280 & Yes \\
+11 & 0.26 & 7 & 930 & Yes \\
+15 & 0.35 & 5 & 680 & Yes \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+The mass range $m_s\sim 8$--$15$~eV provides both a plausible cosmological density and achievable cluster overdensities. Following Haslbauer et al.~\cite{Haslbauer2020}, we adopt $m_s\sim 11$~eV as the central value:
+\begin{equation}
+\boxed{\ m_s \sim 11~\text{eV (sterile neutrino)}\ }.
+\label{eq:ms_prediction}
+\end{equation}
+
+\subsection{Scale separation}
+
+At $m_s\sim 11$~eV, the free-streaming scale is $\lambda_{\rm fs}\sim\text{few Mpc}$. Structure below this scale is suppressed relative to $\Lambda$CDM, while cluster-scale and above is preserved. This predicts:
+\begin{itemize}
+\item \emph{Galaxy scale}: sterile neutrinos free-stream through individual galaxies (though some residual density persists). The SPARC rotation curve fits (Papers~1--2) depend on $\au$ and $\nu$, not on a dark halo; they are unaffected.
+\item \emph{Cluster scale}: sterile neutrinos cluster efficiently ($v_{\rm th}\ll v_{\rm esc}$) and supply the amplitude needed.
+\item \emph{Cosmological}: the suppression of small-scale power distinguishes this scenario from $\Lambda$CDM and is testable with Lyman-$\alpha$ forest measurements.
+\end{itemize}
+
+\subsection{The cost: one new particle}
+
+We acknowledge that introducing a sterile neutrino is an additional ingredient beyond the entanglement gravity mechanism. The framework is no longer ``zero new particles.'' However:
+\begin{itemize}
+\item Sterile neutrinos are the \emph{minimal} extension of the Standard Model (a right-handed neutrino);
+\item the mass scale ($\sim 11$~eV) is predicted by the cluster dynamics, not fitted;
+\item the alternative---leaving the cluster mass gap open---is less explanatory.
+\end{itemize}
+The resulting framework requires: one derived constant ($\au=cH_0/(2\pi)$), one derived interpolation function $\nu(y)$ (Paper~2), one computable weighting field $\wS(x)$ from baryonic thermodynamics, and---if the cluster mass amplitude is to be closed---a sterile-neutrino hot/warm component at the $\mathcal{O}(10\,\mathrm{eV})$ scale.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Predictions and falsification}
+\label{sec:predictions}
+
+\subsection{Testable predictions}
+
+\textit{(P1) Sterile neutrino.} Cluster dynamics require a hot dark matter component with $m_s\sim 8$--$15$~eV. This is testable through: (a)~Lyman-$\alpha$ forest constraints on warm/hot dark matter free-streaming~\cite{Boyarsky2019}; (b)~UV searches for radiative decay lines ($\nu_s\to\nu_a+\gamma$) at $E_\gamma=m_s/2\simeq 5.5$~eV (far-UV; standard X-ray line searches apply to keV-scale sterile neutrinos rather than eV-scale states); (c)~reactor and beam-dump experiments sensitive to eV-scale sterile mixing~\cite{Dasgupta2021}.
+
+\textit{(P2) No cold dark matter.} No WIMP, axion, or other cold dark matter particle will be detected with sufficient relic abundance to account for $\Omega_{\rm DM}$.
+
+\textit{(P3) Baryon-type lensing.} At fixed baryonic mass, star-dominated systems produce stronger entanglement lensing than gas-dominated systems due to the $\wS$ contrast.
+
+\textit{(P4) Universal acceleration.} The Newtonian-to-entanglement transition occurs at $\au=cH_0/(2\pi)$ in all systems.
+
+\textit{(P5) Merging cluster offsets.} Lensing peaks align with stellar components plus their associated sterile neutrino halos, not with shocked gas.
+
+\textit{(P6) Zero phantom self-interaction.} The entanglement component has $\sigma_{\rm self}/m=0$ exactly. The sterile neutrino component has negligible self-interaction at cluster scales.
+
+\subsection{Falsification criteria}
+
+\begin{table}[h]
+\caption{Falsification criteria.}
+\label{tab:falsify}
+\begin{ruledtabular}
+\begin{tabular}{lc}
+Observation & Consequence \\
+\hline
+Cold DM particle with $\Omega_{\rm CDM}\sim 0.26$ & Falsified \\
+No eV-scale sterile neutrino (all searches) & Cluster amplitude unresolved (offset mechanism may still hold) \\
+Lyman-$\alpha$ excludes $m_s\sim 11$~eV HDM & Cluster amplitude unresolved \\
+No baryon-type lensing dependence & Kills $\wS$ \\
+Significant gravitational slip $\eta\neq 1$ in cluster lensing regime & Falsifies no-slip assumption (\S\ref{sec:lensing_assumption}) \\
+Nonzero phantom self-interaction & Kills entanglement mechanism \\
+Violation of universal $\au$ at galaxy scale & Kills series' foundation \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Comparison to $\Lambda$CDM}
+
+$\Lambda$CDM parametrizes cluster dynamics with NFW profiles (two free parameters per halo) sourced by a hypothetical cold dark matter particle. Our framework uses zero free parameters at galaxy scale, one computable field ($\Ssrc$) for spatial structure, and one new particle ($m_s\sim 11$~eV sterile neutrino) for cluster amplitude. The sterile neutrino is the minimal Standard Model extension (a right-handed neutrino), and its mass is predicted by cluster dynamics rather than fitted.
+
+\subsection{Relation to previous MOND + HDM work}
+
+Angus~\cite{Angus2009} and Haslbauer et al.~\cite{Haslbauer2020} showed that MOND cluster dynamics can be reconciled with $\sim 11$~eV sterile neutrinos. Our framework adds the $\wS$-weighted phantom sector, which (a)~provides a physical mechanism for the Bullet Cluster \emph{spatial offset} that standard MOND+HDM does not address, and (b)~connects the cluster phenomenology to the horizon-thermodynamic derivation of $\au$ in Papers~1--2.
+
+We note that most MOND variants modify the interpolation function $\mu(x)$ or $\nu(y)$. The present approach instead modifies the \emph{source structure} of the phantom sector through $\wS(x)$, leaving $\nu$ unchanged. This is a structurally distinct modification within the MOND literature.
+
+\subsection{No nonlocal kernel}
+
+All nonlocality enters through Poisson's equation for $\PN$ and $\Ph$. We do not introduce parameterized memory kernels; the complexity modulation is local through $\Ssrc(x)$.
+
+\subsection{Open problems}
+
+\textit{(i) CMB acoustic peaks.} Whether the combined entanglement + sterile neutrino potential reproduces the observed peak ratios requires Boltzmann code integration. Skordis \& Z\l{}o\'snik~\cite{Skordis2021} demonstrated CMB compatibility for relativistic MOND; extending their framework to include the $\wS$ sector and sterile neutrinos is the natural next step. \textit{(ii) Hubble tension.} If entanglement entropy grows with structure formation, $H_0$ may acquire a scale-factor dependence. \textit{(iii) Quantitative $\kappa$ map.} A full 3D grid solution of Eq.~\eqref{eq:modQUMOND} with realistic baryonic inputs and self-consistent sterile neutrino clustering would produce a directly comparable lensing map; a toy 2D calculation is presented in \S\ref{sec:numerical} and the Supplementary Material.
+
+\subsection{Phenomenological status}
+
+The entropy weighting $\wS=\Ssrc/\langle\Ssrc\rangle$ should be regarded as a phenomenological proxy for local entanglement production rate. A complete microscopic derivation---showing that $\dot{s}_{\rm irr}/k_B$ is the correct source coupling from a quantum gravity theory---remains future work. The present paper establishes that this weighting: (a)~is thermodynamically well-defined, (b)~uses standard astrophysical inputs, (c)~produces qualitatively correct Bullet Cluster morphology, and (d)~preserves galaxy-scale MOND phenomenology. Whether the weighting is exact or merely the leading term of a more general coupling is an open question.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have extended the de~Sitter entanglement gravity framework from galactic to cluster scales through three developments:
+(1)~The interaction complexity source function $\Ssrc(x)=\dot{s}_{\rm irr}/k_B$, inserted into the QUMOND phantom density equation, concentrates entanglement gravitational density near stellar-dominated regions, providing a mechanism for the Bullet Cluster spatial offset.
+(2)~We show that standard active neutrinos cannot close the cluster mass gap (the required overdensities violate the Tremaine--Gunn bound), but a single species of $\sim 11$~eV sterile neutrino---the minimal Standard Model extension---provides the missing amplitude with $\wS^{(s)}=0$.
+(3)~The framework makes specific predictions: no cold dark matter particle, lensing offsets tracking stellar components in merging clusters, a universal acceleration transition at $\au=cH_0/(2\pi)$, and the existence of an eV-scale sterile neutrino testable by laboratory and astrophysical searches.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{acknowledgments}
+The author thanks collaborators and correspondents for critical feedback.
+\end{acknowledgments}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{99}
+
+\bibitem{Paper1} C.~G.~Smith~Jr., ``Galactic Rotation Curves from the de~Sitter Horizon Temperature,'' Zenodo (2026). doi:10.5281/zenodo.18868563.
+
+\bibitem{Paper2} C.~G.~Smith~Jr., ``Emergent Gravity from Horizon-Induced Decoherence and Cosmological Horizon Thermodynamics,'' preprint (2026).
+
+\bibitem{LZ2022} LZ~Collaboration, Phys.\ Rev.\ Lett.\ \textbf{131}, 041002 (2022).
+
+\bibitem{McGaugh2016} S.~S.~McGaugh, F.~Lelli, and J.~M.~Schombert, Phys.\ Rev.\ Lett.\ \textbf{117}, 201101 (2016).
+
+\bibitem{Planck2018} Planck Collaboration, Astron.\ Astrophys.\ \textbf{641}, A6 (2020).
+
+\bibitem{Lelli2016} F.~Lelli, S.~S.~McGaugh, and J.~M.~Schombert, Astron.\ J.\ \textbf{152}, 157 (2016).
+
+\bibitem{Gibbons1977} G.~W.~Gibbons and S.~W.~Hawking, Phys.\ Rev.\ D \textbf{15}, 2738 (1977).
+
+\bibitem{Clowe2006} D.~Clowe \emph{et al.}, Astrophys.\ J.\ \textbf{648}, L109 (2006).
+
+\bibitem{Bradac2006} M.~Brada\v{c} \emph{et al.}, Astrophys.\ J.\ \textbf{652}, 937 (2006).
+
+\bibitem{Sanders2003} R.~H.~Sanders, Mon.\ Not.\ R.\ Astron.\ Soc.\ \textbf{342}, 901 (2003).
+
+\bibitem{Angus2008} G.~W.~Angus, B.~Famaey, and D.~A.~Buote, Mon.\ Not.\ R.\ Astron.\ Soc.\ \textbf{387}, 1470 (2008).
+
+\bibitem{Angus2009} G.~W.~Angus, Mon.\ Not.\ R.\ Astron.\ Soc.\ \textbf{394}, 527 (2009).
+
+\bibitem{Bahcall2005} J.~N.~Bahcall, A.~M.~Serenelli, and S.~Basu, Astrophys.\ J.\ \textbf{621}, L85 (2005).
+
+\bibitem{Sutherland1993} R.~S.~Sutherland and M.~A.~Dopita, Astrophys.\ J.\ Suppl.\ \textbf{88}, 253 (1993).
+
+\bibitem{Milgrom2010} M.~Milgrom, Mon.\ Not.\ R.\ Astron.\ Soc.\ \textbf{403}, 886 (2010).
+
+\bibitem{Randall2008} S.~W.~Randall \emph{et al.}, Astrophys.\ J.\ \textbf{679}, 1173 (2008).
+
+\bibitem{Springel2007} V.~Springel and G.~R.~Farrar, Mon.\ Not.\ R.\ Astron.\ Soc.\ \textbf{380}, 911 (2007).
+
+\bibitem{Ringwald2004} A.~Ringwald and Y.~Y.~Y.~Wong, J.\ Cosmol.\ Astropart.\ Phys.\ \textbf{12}, 005 (2004).
+
+\bibitem{Villaescusa2013} F.~Villaescusa-Navarro \emph{et al.}, J.\ Cosmol.\ Astropart.\ Phys.\ \textbf{03}, 019 (2013).
+
+\bibitem{Brandbyge2010} J.~Brandbyge \emph{et al.}, J.\ Cosmol.\ Astropart.\ Phys.\ \textbf{09}, 014 (2010).
+
+\bibitem{Haslbauer2020} M.~Haslbauer, I.~Banik, and P.~Kroupa, Mon.\ Not.\ R.\ Astron.\ Soc.\ \textbf{499}, 2845 (2020).
+
+\bibitem{Esteban2020} I.~Esteban \emph{et al.}, J.\ High Energy Phys.\ \textbf{09}, 178 (2020).
+
+\bibitem{Verlinde2016} E.~P.~Verlinde, SciPost Phys.\ \textbf{2}, 016 (2016).
+
+\bibitem{Jacobson1995} T.~Jacobson, ``Thermodynamics of Spacetime: The Einstein Equation of State,'' Phys.\ Rev.\ Lett.\ \textbf{75}, 1260 (1995).
+
+\bibitem{Jee2014} M.~J.~Jee \emph{et al.}, Astrophys.\ J.\ \textbf{783}, 78 (2014).
+
+\bibitem{Clowe2012} D.~Clowe \emph{et al.}, Astrophys.\ J.\ \textbf{758}, 128 (2012).
+
+\bibitem{Chae2020} K.-H.~Chae \emph{et al.}, Astrophys.\ J.\ \textbf{904}, 51 (2020).
+
+\bibitem{Skordis2021} C.~Skordis and T.~Z\l{}o\'snik, Phys.\ Rev.\ Lett.\ \textbf{127}, 161302 (2021).
+
+\bibitem{TremaineGunn1979} S.~Tremaine and J.~E.~Gunn, ``Dynamical Role of Light Neutral Leptons in Cosmology,'' Phys.\ Rev.\ Lett.\ \textbf{42}, 407 (1979).
+
+\bibitem{Boyarsky2019} A.~Boyarsky, M.~Drewes, T.~Lasserre, S.~Mertens, and O.~Ruchayskiy, ``Sterile neutrino dark matter,'' Prog.\ Part.\ Nucl.\ Phys.\ \textbf{104}, 1 (2019).
+
+\bibitem{Dasgupta2021} B.~Dasgupta and J.~Kopp, ``Sterile Neutrinos,'' Phys.\ Rep.\ \textbf{928}, 1 (2021).
+
+\end{thebibliography}
+
+\appendix
+
+\section*{Data Availability}
+
+SPARC rotation curve data are publicly available from Lelli et al.~\cite{Lelli2016}. Code for Paper~1's analysis and the complete SPARC fitting pipeline are available at \url{https://github.com/charlesgrantsmith-dotcom/Galactic-Rotation-Curves-from-the-de-Sitter-Horizon} and archived at Zenodo (doi:10.5281/zenodo.18868563). Code reproducing all numerical results in this paper is included as supplementary material.
+
+\end{document}

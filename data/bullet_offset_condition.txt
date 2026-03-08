@@ -1,0 +1,2 @@
+Required w_S ratio > ~10
+Achieved ~ 5e-07

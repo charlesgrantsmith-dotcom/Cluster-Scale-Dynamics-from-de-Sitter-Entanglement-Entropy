@@ -1,0 +1,5 @@
+Paper 3: Key Numbers (Sterile Neutrino Version)
+a_u = 1.0421e-10 m/s^2, a_u/a_0 = 0.8684
+S_star/S_ICM = 5.84e+21
+nu_bar = 3.684, deficit = 1.90x
+Prediction: m_s ~ 11 eV sterile neutrino
